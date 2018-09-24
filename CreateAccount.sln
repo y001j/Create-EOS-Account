@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CreateAccount", "CreateAccount\CreateAccount.njsproj", "{BC82CA3E-71B2-4B84-B0BC-7090CF53B6C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC82CA3E-71B2-4B84-B0BC-7090CF53B6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC82CA3E-71B2-4B84-B0BC-7090CF53B6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC82CA3E-71B2-4B84-B0BC-7090CF53B6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC82CA3E-71B2-4B84-B0BC-7090CF53B6C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {445402D3-F117-4EAC-BA50-70F6EE681A3C}
+	EndGlobalSection
+EndGlobal
