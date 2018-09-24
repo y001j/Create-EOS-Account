@@ -2,6 +2,11 @@
 html
   head
     title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
-  body
+    
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js')
+    body.text-center
     block content
