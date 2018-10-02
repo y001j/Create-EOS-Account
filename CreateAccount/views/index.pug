@@ -1,26 +1,80 @@
 ﻿extends layout
 
 block content
-
-    .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
+    .cover-container.d-flex.p-3.mx-auto.flex-column
       header.masthead.mb-auto
         .inner
-          h3.masthead-brand Cover
+          h3.masthead-brand= t('home.title')
           nav.nav.nav-masthead.justify-content-center
-            a.nav-link.active(href='#') Home
-            a.nav-link(href='#') Features
-            a.nav-link(href='#') Contact
-      main.inner.cover(role='main')
-        h1.cover-heading Cover your page.
+            a.nav-link.active(href='#')= t('home.home')
+            a.nav-link(href='#')= t('home.sp')
+            a.nav-link(href='#')= t('home.about')
+            a.nav-link(href='#')= t('home.lang')
+      main.mainpad.inner.cover(role='main')
+        h1.cover-heading.text-center.font-italic= t('home.create')
+          h4.text-center.text-primary 
+              |Current Fee:&nbsp;
+              = price 
+              | &nbsp;EOS
+          h6.text-center.text-warning
+              | Include: 4Kb RAM | Stake 0.15 EOS for CPU | Stake 0.05 EOS for Net bandwidth
+        hr(style="border:2px dashed #ffffff;")
         p.lead
-          | Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+            h4 Step 1: Input the account name your want to register. 
+
+            p 
+                | EOS Account names must be exactly 12 characters long and consist of lower case characters and digits up until 5.
+            .input-group.mb-3
+                .input-group-prepend
+                    span#basic-addon1.input-group-text <ion-icon size="small" name="person-add"></ion-icon>
+                input.form-control(type='text', placeholder='Account Name', name='account_name', aria-label='Username', aria-describedby='basic-addon1')  
+                .input-group-append
+                    span#addon.input-group-text <ion-icon name="log-in" id="validate"></ion-icon>
+        hr(style="border:2px dashed #ffffff;")
         p.lead
-          a.btn.btn-lg.btn-secondary(href='#') Learn more
-      footer.mastfoot.mt-auto
+            h4 Step 2: Please generate your key pairs for the new account. 
+            p
+                |Online Generator: 
+                a.text-info(href='https://nadejde.github.io/eos-token-sale/', target ="_blank") EOS Key Generation
+            .input-group.mb-3
+                .input-group-prepend
+                    span#basic-addon1.input-group-text <ion-icon name="key"></ion-icon>
+                input#activekey.form-control(type='text', placeholder='Public Active Key', aria-label='ActiveKey', aria-describedby='basic-addon1')
+                .input-group-append
+                    span#addon-active.input-group-text <ion-icon name="log-in" id="validateActive"></ion-icon>
+            .input-group.mb-3
+                .input-group-prepend
+                    span#basic-addon1.input-group-text <ion-icon name="key"></ion-icon>
+                input#ownerkey.form-control(type='text', placeholder='Public Owner Key', aria-label='OwnerKey', aria-describedby='basic-addon1')
+                .input-group-append
+                    span#addon-owner.input-group-text <ion-icon name="log-in" id="validateOwner"></ion-icon>
+        hr(style="border:2px dashed #ffffff;")
+        p.lead
+          h4 Step 3: Generate account and transfer EOS to complete.           
+          .text-center
+             a.btn.btn-lg.btn-secondary.disabled(href='#', id='complete', data-toggle="collapse", data-target="#collapseExample", aria-expanded="true", aria-controls="collapseExample") Complete
+        hr(style="border:2px dashed #ffffff;")
+        #collapseExample.collapse
+            .card.card-body.bg-dark
+                h4.text-center Complete account generation
+                p
+                    | Make an EOS token transfer with the following data:                    
+                    .font-weight-bold Recipient: 
+                        eee.text-warning accountpower
+                    .font-weight-bold Memo: 
+                        eee#memo.text-warning 
+                p
+                    | Amount: Any amount, but has to be bigger than 
+                    eee.text-primary.font-weight-bold= price
+                    |  EOS. 
+                    | If you transfer less than the required minimum amount or any other error occurs, the transferred funds will be automatically refunded by the smart contract.
+                    | If you transfer more than required, the remaining balance will be forwarded to your newly created account.
+      
+      footer.mastfoot.mt-auto.text-center
         .inner
           p
-            | Cover template for 
+            | SP Studio © 2018 
             a(href='https://getbootstrap.com/') Bootstrap
             | , by 
-            a(href='https://twitter.com/mdo') @mdo
+            a(href='https://twitter.com/mdo') @Rocky
             | .

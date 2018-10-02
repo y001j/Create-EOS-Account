@@ -7,6 +7,7 @@ a,
 a:focus,
 a:hover {
     color: #fff;
+    font-weight: bold;
 }
 
 /* Custom default button */
@@ -26,12 +27,12 @@ a:hover {
 
 html,
 body {
-    height: 100%;
+    
     background-color: #333;
 }
 
 body {
-    display: -ms-flexbox;
+   
     display: flex;
     color: #fff;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -39,9 +40,14 @@ body {
 }
 
 .cover-container {
-    max-width: 42em;
+    max-width: 48em;
+    
 }
 
+.mainpad{
+    padding-top:200px;
+    margin-top:100px;
+}
 
 /*
  * Header

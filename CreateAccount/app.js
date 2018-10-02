@@ -3,12 +3,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const debug = require("debug");
 const express = require("express");
 const path = require("path");
+//for internationalization - support multi-language
+const i18next = require("i18next");
+const i18nextMiddleware = require("i18next-express-middleware");
+const Backend = require("i18next-node-fs-backend");
 const index_1 = require("./routes/index");
 const user_1 = require("./routes/user");
 var app = express();
+app.locals.NEWACCOUNT_RAM_KB = 4;
+app.locals.NEWACCOUNT_NET_STAKE = 0.5;
+app.locals.NEWACCOUNT_CPU_STAKE = 1.5;
+app.locals.SMART_ACCOUNT_CREATOR_FEE = 0;
+i18next
+    .use(Backend)
+    .use(i18nextMiddleware.LanguageDetector)
+    .init({
+    backend: {
+        loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json',
+        addPath: __dirname + '/locales/{{lng}}/{{ns}}.missing.json'
+    },
+    detection: {
+        order: ['querystring', 'cookie'],
+        caches: ['cookie']
+    },
+    fallbackLng: 'en',
+    preload: ['en', 'de'],
+    saveMissing: true
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(i18nextMiddleware.handle(i18next));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index_1.default);
 app.use('/users', user_1.default);
