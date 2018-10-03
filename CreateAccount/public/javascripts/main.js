@@ -16,7 +16,7 @@ var chain = {
 //});
 
 eos = Eos({
-    httpEndpoint: 'https://publicapi-mainnet.eosauthority.com'
+    httpEndpoint: 'https://api.eoslaomao.com'
 });
 
 $(function () {
@@ -25,6 +25,8 @@ $(function () {
     //    $('input[name=account_name]').val(get_random_eos_name());
     //    validate_form();
     //});
+    //i18n.init();
+    i18n.init({ cookieName: 'i18next' });
     $('input[name=account_name]').keyup(function (event) {
         validate_form();
     });
@@ -37,6 +39,8 @@ $(function () {
     $('#ownerkey').on("paste", validate_form);
 
     $('#complete').on("click", completeReg);
+    $('#langlink').on("click", switchLang);
+    $('#checkAccount').on("click", checkAccount);
     validate_form();
     $('input[name=account_name]').focus();
 });
@@ -80,9 +84,42 @@ function is_valid_public_key(key) {
     return eosjs_ecc.isValidPublic(key.trim());
 }
 
+function switchLang() {
+    if ($('#langlink').text() == 'En')
+        $('#langlink').attr("href", "/?lng=en");
+    else
+        $('#langlink').attr("href", "/?lng=zh-CN");
+}
+
+function checkAccount() {
+    let account_name = $('input[name=account_name]').val();
+   
+    eos.getAccount(account_name).then((x) => {
+        // console.log("Account already exists");
+        //$(".modal-body").html(t("create"));
+        //check = false;
+        $('#checkModal').modal('show');
+        $('#checkModal.btn-success').attr("href", "https://eospark.com/MainNet/account/" + account_name);
+
+    })
+        .catch((err) => {
+
+            //var temp = $.t("home.create");
+            $('#checkModalFail').modal('show');
+            //$(".modal-body").html(temp);
+        });
+}
+
 function completeReg() {
     $.post('/gethash', { ownerkey: $('#ownerkey').val(), activekey: $('#activekey').val(), account: $('input[name=account_name]').val()}, function (result) {
         $("#memo").html($('input[name=account_name]').val() + result);
+        $('#ownerkey').prop("disabled", true);
+        $('#ownerkey').addClass("disabled");
+        $('#activekey').prop("disabled", true);
+        $('#activekey').addClass("disabled");
+        $('input[name=account_name]').prop("disabled", true);
+        $('input[name=account_name]').addClass("disabled");
+        $("#complete").addClass("disabled");
     }, 'text');
 }
 

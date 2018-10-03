@@ -1,6 +1,8 @@
 {
   "home": {
     "lang": "home.lang",
-    "create": "home.create"
+    "create": "home.create",
+    "include": "home.include",
+    "check": "home.check"
   }
 }

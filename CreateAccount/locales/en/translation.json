@@ -5,6 +5,21 @@
     "about": "About Us",
     "sp": "Save Poors",
     "lang": "中文",
-    "create": "Create your own EOS account"
+    "create": "Create your own EOS account",
+    "fee": "Current Fee: ",
+    "include": "Include: 4Kb RAM | Stake 0.15 EOS for CPU | Stake 0.05 EOS for Net bandwidth",
+    "step1": "Step 1: Input and verify the account name your want to register.",
+    "step2": "Step 2: Please generate your key pairs for the new account.",
+    "step3": "Step 3: Generate account and transfer EOS to complete it.",
+    "step1_intro": "EOS Account names must be exactly 12 characters long and consist of lower case characters and digits from 1 to 5.",
+    "step2_intro": "Online Generator: ",
+    "step2_link": "EOS Key Pair Generation",
+    "step3_title": "Complete account generation",
+    "step3_intro1": "Make an EOS token transfer with the following data:",
+    "step3_intro2": "Amount: Any amount, but has to be bigger than ",
+    "step3_intro3": " EOS. If you transfer less than the required minimum amount or any other error occurs, the transferred funds will be automatically refunded by the smart contract. If you transfer more than required, the remaining balance will be forwarded to your newly created account.",
+    "recipient": "Recipient: ",
+    "memo": "Memo: ",
+    "check": "Check New Account"
   }
 }

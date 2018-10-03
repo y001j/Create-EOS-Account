@@ -28,7 +28,7 @@ a:hover {
 html,
 body {
     
-    background-color: #333;
+    background-color: #666;
 }
 
 body {
@@ -41,6 +41,7 @@ body {
 
 .cover-container {
     max-width: 48em;
+    min-width: 48em;
     
 }
 

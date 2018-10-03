@@ -5,7 +5,9 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>CreateAccount</Name>
     <RootNamespace>CreateAccount</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>CreateAccount20181003011537 - Web Deploy</NameOfLastUsedPublishProfile>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,7 +27,7 @@
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
     <EnableTypeScript>true</EnableTypeScript>
-    <StartWebBrowser>true</StartWebBrowser>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +36,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Web.config" />
+    <None Include="CreateAccount20181003011537 - Web Deploy.pubxml" />
     <Content Include="locales\de\translation.json" />
     <Content Include="locales\zh-CN\translation.json">
       <SubType>Code</SubType>
@@ -73,6 +77,7 @@
   <ItemGroup>
     <Compile Include="public\javascripts\bootstrap.bundle.min.js" />
     <Compile Include="public\javascripts\bootstrap.min.js" />
+    <Compile Include="public\javascripts\i18next-1.11.2.min.js" />
     <Compile Include="public\javascripts\main.js">
       <SubType>Code</SubType>
     </Compile>

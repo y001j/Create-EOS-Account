@@ -7,23 +7,21 @@ block content
           h3.masthead-brand= t('home.title')
           nav.nav.nav-masthead.justify-content-center
             a.nav-link.active(href='#')= t('home.home')
-            a.nav-link(href='#')= t('home.sp')
+            a.nav-link(href='https://www.savepoors.com/')= t('home.sp')
             a.nav-link(href='#')= t('home.about')
-            a.nav-link(href='#')= t('home.lang')
+            a#langlink.nav-link(href='/?lng=zh-CN')= t('home.lang')
       main.mainpad.inner.cover(role='main')
-        h1.cover-heading.text-center.font-italic= t('home.create')
-          h4.text-center.text-primary 
-              |Current Fee:&nbsp;
+        h1.cover-heading.text-center= t('home.create')
+          h4.text-center.text-primary= t('home.fee') 
+              |&nbsp;               
               = price 
               | &nbsp;EOS
-          h6.text-center.text-warning
-              | Include: 4Kb RAM | Stake 0.15 EOS for CPU | Stake 0.05 EOS for Net bandwidth
+          h6.text-center.text-warning= t('home.include') 
         hr(style="border:2px dashed #ffffff;")
         p.lead
-            h4 Step 1: Input the account name your want to register. 
+            h4= t('home.step1')
 
-            p 
-                | EOS Account names must be exactly 12 characters long and consist of lower case characters and digits up until 5.
+            p= t('home.step1_intro')
             .input-group.mb-3
                 .input-group-prepend
                     span#basic-addon1.input-group-text <ion-icon size="small" name="person-add"></ion-icon>
@@ -32,10 +30,9 @@ block content
                     span#addon.input-group-text <ion-icon name="log-in" id="validate"></ion-icon>
         hr(style="border:2px dashed #ffffff;")
         p.lead
-            h4 Step 2: Please generate your key pairs for the new account. 
-            p
-                |Online Generator: 
-                a.text-info(href='https://nadejde.github.io/eos-token-sale/', target ="_blank") EOS Key Generation
+            h4= t('home.step2')
+            p= t('home.step2_intro')
+                a.text-info(href='https://nadejde.github.io/eos-token-sale/', target ="_blank")= t('home.step2_link')
             .input-group.mb-3
                 .input-group-prepend
                     span#basic-addon1.input-group-text <ion-icon name="key"></ion-icon>
@@ -50,31 +47,56 @@ block content
                     span#addon-owner.input-group-text <ion-icon name="log-in" id="validateOwner"></ion-icon>
         hr(style="border:2px dashed #ffffff;")
         p.lead
-          h4 Step 3: Generate account and transfer EOS to complete.           
+          h4= t('home.step3')           
           .text-center
              a.btn.btn-lg.btn-secondary.disabled(href='#', id='complete', data-toggle="collapse", data-target="#collapseExample", aria-expanded="true", aria-controls="collapseExample") Complete
         hr(style="border:2px dashed #ffffff;")
         #collapseExample.collapse
             .card.card-body.bg-dark
-                h4.text-center Complete account generation
-                p
-                    | Make an EOS token transfer with the following data:                    
-                    .font-weight-bold Recipient: 
+                h4.text-center= t('home.step3_title')
+                p= t('home.step3_intro1')              
+                    .font-weight-bold= t('home.recipient')
                         eee.text-warning accountpower
-                    .font-weight-bold Memo: 
+                    .font-weight-bold= t('home.memo') 
                         eee#memo.text-warning 
-                p
-                    | Amount: Any amount, but has to be bigger than 
+                p= t('home.step3_intro2') 
                     eee.text-primary.font-weight-bold= price
-                    |  EOS. 
-                    | If you transfer less than the required minimum amount or any other error occurs, the transferred funds will be automatically refunded by the smart contract.
-                    | If you transfer more than required, the remaining balance will be forwarded to your newly created account.
-      
+                    eee= t('home.step3_intro3') 
+                .text-center
+                    a.btn.btn-primary(id='checkAccount', aria-expanded="true",  data-toggle="modal")= t('home.check')
+          
+      #checkModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='checkModalTitle', aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header.bg-success
+                h5#checkModalTitle.modal-title Account Check
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body.text-success
+                | Congratulations!! You account has been successfully generated. You can find more details about your new account in blockchain explorer   
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                a.btn.btn-success(type='button', href='https://eospark.com/MainNet/account/accountpower') More info
+
+      #checkModalFail.modal.fade(tabindex='-1', role='dialog', aria-labelledby='checkModalFailTitle', aria-hidden='true')
+          .modal-dialog.modal-dialog-centered(role='document')
+            .modal-content
+              .modal-header.bg-danger
+                h5#checkModalFailTitle.modal-title Account Check
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') ×
+              .modal-body.text-danger
+                | Unfortunately!! You account has not been generated. Please confirm you had correctly transfered EOS tokens. 
+              .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                //a.btn.btn-success(type='button', href='https://eospark.com/MainNet/account/accountpower') More info
+    
+                         
       footer.mastfoot.mt-auto.text-center
         .inner
           p
             | SP Studio © 2018 
-            a(href='https://getbootstrap.com/') Bootstrap
+            a(href='#') SavePoors
             | , by 
-            a(href='https://twitter.com/mdo') @Rocky
+            a(href='#') @eee
             | .
