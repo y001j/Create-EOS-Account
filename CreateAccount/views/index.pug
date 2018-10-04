@@ -76,7 +76,7 @@ block content
                 | Congratulations!! You account has been successfully generated. You can find more details about your new account in blockchain explorer   
               .modal-footer
                 button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-                a.btn.btn-success(type='button', href='https://eospark.com/MainNet/account/accountpower') More info
+                a#moreinfo.btn.btn-success(type='button', href='https://eospark.com/MainNet/account/accountpower') More info
 
       #checkModalFail.modal.fade(tabindex='-1', role='dialog', aria-labelledby='checkModalFailTitle', aria-hidden='true')
           .modal-dialog.modal-dialog-centered(role='document')
@@ -93,10 +93,12 @@ block content
     
                          
       footer.mastfoot.mt-auto.text-center
-        .inner
-          p
-            | SP Studio © 2018 
-            a(href='#') SavePoors
-            | , by 
-            a(href='#') @eee
-            | .
+       .inner
+            p
+                | SP Studio © 2018 
+            p
+                a(href='https://www.savepoors.com') <ion-icon name="apps"></ion-icon>
+                | - 
+                a(href='mailto:service@savepoors.com') <ion-icon name="mail"></ion-icon> 
+                | - 
+                a(href='https://github.com/y001j/Create-EOS-Account') <ion-icon name="logo-github"></ion-icon> 

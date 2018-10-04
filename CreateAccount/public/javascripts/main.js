@@ -99,7 +99,7 @@ function checkAccount() {
         //$(".modal-body").html(t("create"));
         //check = false;
         $('#checkModal').modal('show');
-        $('#checkModal.btn-success').attr("href", "https://eospark.com/MainNet/account/" + account_name);
+        //$('#checkModal.btn-success').attr("href", "https://eospark.com/MainNet/account/" + account_name);
 
     })
         .catch((err) => {
@@ -120,6 +120,7 @@ function completeReg() {
         $('input[name=account_name]').prop("disabled", true);
         $('input[name=account_name]').addClass("disabled");
         $("#complete").addClass("disabled");
+        $("#moreinfo").attr("href", "https://eospark.com/MainNet/account/" + account_name);
     }, 'text');
 }
 

@@ -20,6 +20,9 @@ a:hover {
     border: .05rem solid #fff;
 }
 
+ion-icon {
+    font-size: 22px;
+}
 
 /*
  * Base structure
